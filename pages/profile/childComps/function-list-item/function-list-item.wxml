@@ -1,0 +1,6 @@
+<!--pages/profile/childComps/function-list-item/function-list-item.wxml-->
+<view class="function-list-item">
+<image src="{{imgPath}}" class="list-icon"></image>
+  <text>{{desctext}}</text>
+  <image src="/assets/profile/functionlist/showmore.png" class="back-icon"></image>
+</view>

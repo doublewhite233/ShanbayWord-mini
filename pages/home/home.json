@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "study-condition": "/components/study-condition/study-condition",
+    "wordlist-book": "./childComps/wordlist-book/wordlist-book"
+  }
+}

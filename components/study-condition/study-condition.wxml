@@ -1,0 +1,21 @@
+<!--components/study-condition/study-condition.wxml-->
+<view class="study-condition">
+  <view class="title">-今日任务-</view>
+  <view class="content">
+    <view class="unit">
+      <view class="content-sup" class="{{showSubTitle?'show-none':''}}">{{titles[0]}}</view>
+      <text class="content-main">{{studyNums[0]}}</text> <text>{{studyNumsSub[0]}}</text>
+      <view class="content-sub" class="{{showSubTitle?'':'show-none'}}">{{titles[0]}}</view>
+    </view>
+    <view class="unit">
+      <view class="content-sup" class="{{showSubTitle?'show-none':''}}">{{titles[1]}}</view>
+      <text class="content-main">{{studyNums[1]}}</text> <text>{{studyNumsSub[1]}}</text>
+      <view class="content-sub" class="{{showSubTitle?'':'show-none'}}">{{titles[1]}}</view>
+    </view>
+    <view class="unit">
+      <view class="content-sup" class="{{showSubTitle?'show-none':''}}">{{titles[2]}}</view>
+      <text class="content-main">{{studyNums[2]}}</text> <text>{{studyNumsSub[2]}}</text>
+      <view class="content-sub" class="{{showSubTitle?'':'show-none'}}">{{titles[2]}}</view>
+    </view>
+  </view>
+</view>

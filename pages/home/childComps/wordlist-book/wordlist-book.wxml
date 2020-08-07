@@ -1,0 +1,7 @@
+<!--pages/home/childComps/wordlist-book/wordlist-book.wxml-->
+<view class="wordlist-book">
+  <image src="/assets/home/no-book.png"></image>
+  <view class="book-name">{{bookName}}</view>
+  <view><text class="your-condition">已完成<text>a</text>%</text><text class="finish-num">/词</text></view>
+  <progress class="study-progress"></progress>
+</view>

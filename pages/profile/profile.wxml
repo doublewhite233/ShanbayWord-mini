@@ -1,0 +1,9 @@
+<!--pages/profile/profile.wxml-->
+<image src="https://s1.ax1x.com/2020/08/02/atDfmR.png" mode="aspectFit" id="background"></image>
+<view class="userInfo">
+  <image src="{{userAvatar}}"></image>
+  <view>{{userId}}</view>
+  <button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" id="login-btn" disabled="{{loginDisable}}">授权登录</button>
+</view>
+<choose-bar/>
+<function-list/>

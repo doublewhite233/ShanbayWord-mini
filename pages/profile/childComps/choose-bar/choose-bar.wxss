@@ -1,0 +1,18 @@
+/* pages/profile/childComps/choose-bar/choose-bar.wxss */
+.choose-bar {
+  display: flex;
+  text-align: center;
+  font-size: 24rpx;
+  padding: 40rpx 0;
+  border-bottom: 4rpx solid #eee;
+}
+
+.choose-item {
+  flex: 1;
+}
+
+.item-img {
+  width: 70rpx;
+  height: 70rpx;
+  padding-bottom: 16rpx;
+}

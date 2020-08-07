@@ -1,0 +1,28 @@
+/* pages/profile/childComps/function-list-item/function-list-item.wxss */
+.function-list-item {
+  width: 100%;
+  height: 120rpx;
+  position: relative;
+  display: flex;
+  font-size: 30rpx;
+}
+
+.function-list-item text {
+  align-self: center;
+}
+
+.back-icon {
+  width: 40rpx;
+  height: 40rpx;
+  right: 40rpx;
+  position: absolute;
+  align-self: center;
+}
+
+.list-icon {
+  width: 60rpx;
+  height: 60rpx;
+  align-self: center;
+  padding-left: 60rpx;
+  padding-right: 30rpx;
+}

@@ -1,0 +1,8 @@
+/* pages/profile/childComps/function-list/function-list.wxss */
+.functionBtn {
+  width: 100%;
+  background-color: transparent;
+  padding: 0;
+  font-weight: normal;
+  display: inline;
+}

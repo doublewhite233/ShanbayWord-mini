@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "function-list-item": "../function-list-item/function-list-item"
+  }
+}

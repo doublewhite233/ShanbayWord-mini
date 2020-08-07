@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "choose-bar": "./childComps/choose-bar/choose-bar",
+    "function-list": "./childComps/function-list/function-list"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "pages":[
+    "pages/home/home",
+    "pages/profile/profile"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "扇贝单词极速版",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "color": "#dbdbdb",
+    "selectedColor": "#515151",
+    "list": [{
+      "pagePath": "pages/home/home",
+      "text": "首页",
+      "iconPath": "/assets/tabbar/home.png",
+      "selectedIconPath": "/assets/tabbar/home_active.png"
+    },
+    {
+      "pagePath": "pages/profile/profile",
+      "text": "我的",
+      "iconPath": "/assets/tabbar/profile.png",
+      "selectedIconPath": "/assets/tabbar/profile_active.png"
+    }]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,43 @@
+/* pages/home/childComps/wordlist-book/wordlist-book.wxss */
+.wordlist-book {
+  height: 260rpx;
+  position: relative;
+  color: #fff;
+  margin-top: 20rpx;
+}
+.wordlist-book image {
+  width: 100%;
+  height: 260rpx;
+  position: absolute;
+  z-index: -10;
+}
+
+.book-name {
+  font-size: 34rpx;
+  padding: 40rpx 30rpx;
+}
+
+.your-condition {
+  padding-left: 30rpx;
+  font-size: 24rpx;
+  position: absolute;
+  bottom: 60rpx;
+}
+
+.finish-num {
+  padding-right: 30rpx;
+  font-size: 24rpx;
+  position: absolute;
+  bottom: 60rpx;
+  right: 0;
+}
+
+.study-progress {
+  width: 90%;
+  border-radius: 200rpx;
+  overflow: hidden;
+  opacity: 0.8;
+  margin-left: 30rpx;
+  position: absolute;
+  bottom: 40rpx;
+}

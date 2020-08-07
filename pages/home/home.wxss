@@ -1,0 +1,40 @@
+/* pages/home/home.wxss */
+#background {
+  width: 100%;
+  height: 200rpx;
+  position: absolute;
+  z-index: -100;
+}
+
+.home {
+  font-size: 32rpx;
+  padding-top: 20rpx;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  position: relative;
+}
+
+#maintext {
+  font-size: 100rpx;
+  font-weight: bold;
+  padding: 20rpx 0;
+}
+
+#clockinBtn {
+  font-weight: normal;
+  font-size: 24rpx;
+  border-radius: 50rpx;
+  background-color: #ffdd55;
+  position: absolute;
+  right: 40rpx;
+  top: 140rpx;
+}
+
+#startBtn {
+  font-weight: normal;
+  font-size: 34rpx;
+  color: #fff;
+  background-color: #44cc99;
+  border-radius: 50rpx;
+  width: 70%;
+}

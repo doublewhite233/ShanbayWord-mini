@@ -1,0 +1,10 @@
+<!--pages/home/home.wxml-->
+<image src="https://s1.ax1x.com/2020/08/02/atDfmR.png" mode="aspectFit" id="background"></image>
+<view class="home">
+  <view>{{prompt}}</view>
+  <view id="maintext">Hi~</view>
+  <button size="mini" id="clockinBtn">打卡日历></button>
+  <wordlist-book/>
+  <study-condition titles="{{['新词数','复习单词','未学单词']}}"/>
+  <button id="startBtn" bindtap="bindStart">{{btnMessage}}</button>
+</view>
