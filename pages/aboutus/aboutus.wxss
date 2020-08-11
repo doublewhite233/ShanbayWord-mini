@@ -1,0 +1,45 @@
+/* pages/aboutus/aboutus.wxss */
+#background {
+  width: 100%;
+  height: 200rpx;
+  position: absolute;
+  z-index: -100;
+}
+
+.aboutus {
+  width: 86%;
+  margin: 0 auto;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  border-bottom: 2rpx solid #ccc;
+}
+
+.logo image{
+  width: 360rpx;
+  height: 200rpx;
+  padding: 60rpx 0;
+}
+
+.content {
+  font-size: 28rpx;
+  color: #666;
+  padding-top: 60rpx;
+}
+
+.info {
+  background-color: #ffd263;
+}
+
+.QRcode {
+  display: flex;
+  justify-content: center;
+  margin-top: 60rpx;
+}
+
+.QRcode image {
+  height: 200rpx;
+  width: 200rpx;
+}

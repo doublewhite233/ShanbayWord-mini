@@ -1,14 +1,11 @@
-// pages/home/home.js
-const app = getApp()
-
+// pages/wordnotes/wordnotes.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    prompt: "快开始今天的学习吧",
-    btnMessage: "去选单词书"
+
   },
 
   /**
@@ -63,25 +60,7 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function (options) {
-    return {
-      title: '扇贝单词极速版',
-      path: '/pages/home/home'
-    }
-  },
-  bindStart() {
-    if (app.globalData.userInfo == null) {
-      wx.showToast({
-        title: '您还未登录哟',
-        icon: 'none',
-        mask: true,
-        complete: (res) => {}
-      })
-    }
-    else {
-      wx.navigateTo({
-        url: '/pages/mybooks/mybooks',
-      })
-    }
+  onShareAppMessage: function () {
+
   }
 })

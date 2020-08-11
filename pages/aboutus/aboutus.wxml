@@ -1,0 +1,21 @@
+<!--pages/aboutus/aboutus.wxml-->
+<image src="https://s1.ax1x.com/2020/08/02/atDfmR.png" mode="aspectFit" id="background"></image>
+<view class="aboutus">
+  <view class="logo">
+    <image src="/assets/about/logo.png"></image>
+  </view>
+  <view class="content">
+    扇贝单词极速版是扇贝旗下的一款单词学习小程序。在这里，用户可以选择备考的单词书，制定适合自己的每日任务，高效率学习，打卡记录自己的成长。
+  </view>
+  <view class="content">
+    快去选择一本单词书进行学习吧！是时候开始属于自己的单词备考计划了~
+  </view>
+  <view class="QRcode">
+    <image src="/assets/about/QRcode.jpg" bindlongtap="bindSaveImg"></image>
+  </view>
+  <view class="content">
+    <text style="font-weight: bold;">长按</text>或<text style="font-weight: bold;">截图</text>保存二维码，关注
+    <text style="font-weight: bold;" class="info">扇贝单词公众号</text>
+    ，了解更多产品和更新消息哦~
+  </view>
+</view>

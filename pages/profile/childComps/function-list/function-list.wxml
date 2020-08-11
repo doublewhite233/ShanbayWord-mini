@@ -1,6 +1,6 @@
 <!--pages/profile/childComps/function-list/function-list.wxml-->
 <function-list-item desctext="我的贝壳" imgPath="/assets/profile/functionlist/mine.png" />
 <function-list-item desctext="支持一下" imgPath="/assets/profile/functionlist/alert.png" />
-<function-list-item desctext="关于我们" imgPath="/assets/profile/functionlist/aboutus.png" />
+<function-list-item desctext="关于我们" imgPath="/assets/profile/functionlist/aboutus.png" bindtap="bindNavToAbout" />
 <button open-type="share" class="functionBtn"><function-list-item desctext="分享小程序" imgPath="/assets/profile/functionlist/share.png" /></button>
 <button bindtap="bindShowModal" class="functionBtn"><function-list-item desctext="下载APP" imgPath="/assets/profile/functionlist/download.png" /></button>

@@ -1,14 +1,14 @@
 <!--pages/profile/childComps/choose-bar/choose-bar.wxml-->
 <view class="choose-bar">
-  <view class="choose-item">
+  <view class="choose-item" bindtap="bindNavToMybooks">
     <image src="/assets/profile/choosebar/book.png" class="item-img"></image>
     <view>单词书</view>
   </view>
-  <view class="choose-item">
+  <view class="choose-item"  bindtap="bindNavToNewword">
     <image src="/assets/profile/choosebar/newword.png" class="item-img"></image>
     <view>生词本</view>
   </view>
-  <view class="choose-item">
+  <view class="choose-item" bindtap="bindNavToWordnotes">
     <image src="/assets/profile/choosebar/note.png" class="item-img"></image>
     <view>单词笔记</view>
   </view>

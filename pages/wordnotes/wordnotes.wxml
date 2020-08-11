@@ -1,0 +1,2 @@
+<!--pages/wordnotes/wordnotes.wxml-->
+<empty-page emptyTitle="还没有添加笔记哦" content="扇贝会帮你把背单词时收藏的笔记收录在这里哦，记得温故知新，常回来看看哦~"/>

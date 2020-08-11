@@ -1,0 +1,6 @@
+<!--components/empty-page/empty-page.wxml-->
+<view class="empty">
+  <image src="/assets/empty/emptyimg.png"></image>
+  <view class="title">{{emptyTitle}}</view>
+  <view class="content">{{content}}</view>
+</view>

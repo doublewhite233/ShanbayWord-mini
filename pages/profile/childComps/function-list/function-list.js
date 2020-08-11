@@ -31,6 +31,11 @@ Component({
         fail: (res) => {},
         complete: (res) => {},
       })
+    },
+    bindNavToAbout() {
+      wx.navigateTo({
+        url: '/pages/aboutus/aboutus',
+      })
     }
   }
 })

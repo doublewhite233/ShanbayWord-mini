@@ -18,6 +18,20 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    bindNavToMybooks() {
+      wx.navigateTo({
+        url: '/pages/mybooks/mybooks',
+      })
+    },
+    bindNavToNewword() {
+      wx.navigateTo({
+        url: '/pages/newword/newword',
+      })
+    },
+    bindNavToWordnotes() {
+      wx.navigateTo({
+        url: '/pages/wordnotes/wordnotes',
+      })
+    }
   }
 })
