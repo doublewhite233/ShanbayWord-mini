@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "type-bar": "./childComps/type-bar/type-bar"
+  }
+}

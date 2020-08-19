@@ -5,7 +5,9 @@
     "pages/mybooks/mybooks",
     "pages/newword/newword",
     "pages/wordnotes/wordnotes",
-    "pages/aboutus/aboutus"
+    "pages/aboutus/aboutus",
+    "pages/choosebook/choosebook",
+    "pages/goal/goal"
   ],
   "window": {
     "backgroundTextStyle": "light",

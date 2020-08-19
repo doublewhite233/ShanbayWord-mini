@@ -1,0 +1,19 @@
+<!--pages/choosebook/childComps/type-bar.wxml-->
+<view class="type-bar">
+  <view class="main-bar">
+    <text>{{title}}</text>
+    <image src="/assets/choosebook/hide.png" wx:if="{{!showmoreFlag}}" bindtap="bindShow"></image>
+    <image src="/assets/choosebook/show.png" wx:if="{{showmoreFlag}}" bindtap="bindShow"></image>
+  </view>
+  <view class="bar-content"  wx:if="{{!showmoreFlag}}">
+    <view class="con-title">- 热门 -</view>
+    <view class="con-hot">
+      <view wx:for="{{type}}" wx:key="typeid" wx:if="{{item.hot}}" class="{{chooseIndex==index?'active':''}}" bindtap="bindClickItem" data-index="{{index}}">{{item.typename}}</view>
+    </view>
+    <view class="con-title">- 其他 -</view>
+    <view class="con-other">
+      <view wx:for="{{type}}" wx:key="typeid" wx:if="{{!item.hot}}" class="{{chooseIndex==index?'active':''}}" bindtap="bindClickItem" data-index="{{index}}">{{item.typename}}</view>
+    </view>
+  </view>
+  <view class="mask"  wx:if="{{!showmoreFlag}}"></view>
+</view>

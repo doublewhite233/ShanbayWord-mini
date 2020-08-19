@@ -1,3 +1,6 @@
+let baseURL = 'http://192.168.43.184:5000'
+export {baseURL}
+
 export default function request(options) {
   return new Promise((resolve, reject) => {
     wx.request({

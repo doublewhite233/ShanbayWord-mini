@@ -1,0 +1,26 @@
+/* pages/goal/goal.wxss */
+#background {
+  width: 100%;
+  height: 200rpx;
+  position: absolute;
+  z-index: -100;
+}
+
+.goal image {
+  width: 190rpx;
+  height: 280rpx;
+  position: absolute;
+  left: 40rpx;
+  padding: 60rpx 0;
+}
+
+.content {
+  position: absolute;
+  left: 260rpx;
+  font-size: 30rpx;
+}
+
+.bookname {
+  font-size: 36rpx;
+  padding: 70rpx 0 20rpx 0;
+}

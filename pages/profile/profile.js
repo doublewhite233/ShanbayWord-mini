@@ -8,7 +8,8 @@ Page({
   data: {
     userId: '点击登录',
     userAvatar: '/assets/profile/avatar.png',
-    loginDisable: false
+    loginDisable: false,
+    shanbayID: 'xxxxx'
   },
 
   /**
@@ -20,6 +21,11 @@ Page({
         userId: app.globalData.userInfo.nickName,
         userAvatar: app.globalData.userInfo.avatarUrl,
         loginDisable: true
+      })
+    }
+    if (app.globalData.ShanbayInfo != null){
+      this.setData ({
+        shanbayID: app.globalData.ShanbayInfo.userid
       })
     }
   },

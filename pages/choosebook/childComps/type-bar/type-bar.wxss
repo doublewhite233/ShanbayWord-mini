@@ -1,0 +1,79 @@
+/* pages/choosebook/childComps/type-bar.wxss */
+.main-bar {
+  width: 100%;
+  height: 50rpx;
+  position:fixed;
+  background-color: #fff;
+  z-index: 100;
+  top: 0;
+  font-size: 42rpx;
+  padding: 30rpx 40rpx;
+}
+
+.main-bar image {
+  width: 50rpx;
+  height: 35rpx;
+  position: relative;
+  left: 20rpx;
+}
+
+.bar-content {
+  width: 100%;
+  background-color: #fff;
+  position:fixed;
+  z-index: 100;
+  top: 110rpx;
+  padding-bottom: 40rpx;
+}
+
+.con-title {
+  text-align: center;
+  color: #999;
+  font-size: 28rpx;
+  padding: 20rpx 0;
+}
+
+.con-hot {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 30rpx;
+  color: #44cc99;
+}
+
+.con-hot view {
+  padding: 8rpx 40rpx;
+  border: 1px solid #44cc99;
+  border-radius: 50rpx;
+  margin: 12rpx 20rpx;
+}
+
+.con-other {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 30rpx;
+  color: #999;
+}
+
+.con-other view {
+  padding: 8rpx 40rpx;
+  border: 1px solid rgb(242, 242, 242);
+  border-radius: 50rpx;
+  margin: 12rpx 20rpx;
+  background-color: rgb(242, 242, 242);
+}
+
+.mask{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: #777;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  opacity: 0.8;
+}
+
+.active {
+  background-color: #44cc99 !important; 
+  color: #fff;
+}

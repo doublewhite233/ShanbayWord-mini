@@ -1,0 +1,11 @@
+<!--pages/choosebook/choosebook.wxml-->
+<view class="choose-book">
+  <type-bar type="{{type}}" bind:indexChanged="bindIndexChanged"/>
+  <view class="booklist">
+    <view wx:for="{{booklist}}" class="booklist-content" wx:key="bookid" data-bookinfo="{{item}}" bindtap="bindNavToGoal">
+      <image src="{{item.imgURL}}"></image>
+      <view>{{item.bookname}}</view>
+      <view class="count">{{item.count}}词</view>
+    </view>
+  </view>
+</view>

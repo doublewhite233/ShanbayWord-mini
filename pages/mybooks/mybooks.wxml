@@ -2,5 +2,5 @@
 <view class="mybooks">
   <view>我的学习任务</view>
   <view>我的书桌</view>
-  <button>添加新书</button>
+  <button bindtap="bindNavToChooseBook">添加新书</button>
 </view>

@@ -3,6 +3,7 @@
 <view class="userInfo">
   <image src="{{userAvatar}}"></image>
   <view>{{userId}}</view>
+  <view wx:if="{{loginDisable}}" class="shanbayID">扇贝ID：{{shanbayID}}</view>
   <button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" id="login-btn" disabled="{{loginDisable}}">授权登录</button>
 </view>
 <choose-bar/>

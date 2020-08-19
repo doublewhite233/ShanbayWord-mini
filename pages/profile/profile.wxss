@@ -27,3 +27,9 @@
   height: 220rpx;
   opacity: 0;
 }
+
+.shanbayID {
+  font-size: 28rpx;
+  color: #777;
+  padding-top: 6rpx;
+}

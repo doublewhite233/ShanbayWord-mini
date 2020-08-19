@@ -1,0 +1,23 @@
+/* pages/choosebook/choosebook.wxss */
+.booklist {
+  position: absolute;
+  top: 110rpx;
+  display: flex;
+  flex-wrap: wrap;
+}
+.booklist-content {
+  width: 200rpx;
+  font-size: 28rpx;
+  padding: 0 25rpx;
+  margin-bottom: 50rpx;
+}
+
+.booklist-content image {
+  width: 200rpx;
+  height: 295rpx;
+}
+
+.count {
+  font-size: 26rpx;
+  color: #777;
+}

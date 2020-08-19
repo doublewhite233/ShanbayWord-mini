@@ -1,13 +1,21 @@
 //app.js
-import request from './service/network.js'
+import request,{baseURL} from './service/network'
 
 const TOKEN = 'token'
 App({
   globalData: {
     userInfo: null,
-    chosenBooks: null
+    token: '',
+    ShanbayInfo: {}
   },
   onLaunch: function () {
+    this.getShanbayInfo()
+    const token = wx.getStorageSync(TOKEN)
+    if (token && token.length !== 0) {
+      this.checkToken(token)
+    }else {
+      this.login()
+    }
     // 获取用户信息
     wx.getSetting({
       success: res => {
@@ -34,8 +42,21 @@ App({
               }
             }
           })
-
         }
+      }
+    })
+  },
+  checkToken(token){
+    request({
+      url: baseURL + '/auth',
+      header: {
+        token
+      }
+    }).then(res => {
+      if (!res.data.errCode) {
+        this.globalData.token = token
+      }else {
+        this.login()
       }
     })
   },
@@ -46,8 +67,7 @@ App({
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
         const code = res.code
         request ({
-          url: 'http://123.207.32.32:3000/login',
-          method: 'POST',
+          url: baseURL + '/login',
           data: {
             code: code
           }
@@ -62,6 +82,18 @@ App({
           console.log(err)
         })
       }
+    })
+  },
+  getShanbayInfo() {
+    const token = wx.getStorageSync(TOKEN)
+    request({
+      url: baseURL + '/userinfo',
+      header: {
+        token
+      }
+    }).then(res => {
+      console.log(res)
+      this.globalData.ShanbayInfo = res.data[0]
     })
   }
 })

@@ -81,8 +81,9 @@
 				},
 				{
 					"id": -1,
-					"name": "pages/newword/newword",
-					"pathName": "pages/newword/newword",
+					"name": "pages/choosebook/choosebook",
+					"pathName": "pages/choosebook/choosebook",
+					"query": "",
 					"scene": null
 				}
 			]
