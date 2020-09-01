@@ -1,4 +1,6 @@
 // pages/profile/childComps/choose-bar/choose-bar.js
+const app = getApp()
+
 Component({
   /**
    * 组件的属性列表
@@ -19,9 +21,15 @@ Component({
    */
   methods: {
     bindNavToMybooks() {
+      if (app.globalData.ShanbayInfo.booknum !== 0){
+        wx.navigateTo({
+          url: '/pages/mybooks/mybooks'
+        })
+    }else {
       wx.navigateTo({
-        url: '/pages/mybooks/mybooks',
+        url: '/pages/choosebook/choosebook',
       })
+    }
     },
     bindNavToNewword() {
       wx.navigateTo({

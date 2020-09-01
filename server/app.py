@@ -4,7 +4,7 @@ import requests
 import pymssql
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 import functools
-from app_utils import getRandomID
+from app_utils import getRandomID, getRandom
 
 app = Flask(__name__)
 # 解决中文乱码的问题，将json数据内的中文正常显示
@@ -14,7 +14,7 @@ app.config['DEBUG'] = True
 # 设置跨域
 CORS(app, supports_credentials=True)
 
-conn = pymssql.connect(host='127.0.0.1:1433', user='sa', password='123456', database='ShanBay', charset="UTF-8")
+conn = pymssql.connect(host='127.0.0.1:1433', user='sa', password='111111', database='ShanBay', charset="UTF-8")
 
 # token密钥
 SECRET_KEY = 'doublewhite'
@@ -44,8 +44,8 @@ def login_required(view_func):
 @app.route('/login', methods=['GET'])
 def login():
     code = request.args.get("code")
-    appId = 'appID'
-    appSecret = 'appSecret'
+    appId = 'appid'
+    appSecret = 'appsecret'
     params = {
         'appid': appId,
         'secret': appSecret,
@@ -72,7 +72,6 @@ def login():
                 cursor.execute(auth_sql)
                 auth = cursor.fetchall()
             add_info = 'insert into "user" values (' + "'" + openid + "','" + userid + "',0,0)"
-            print(add_info)
             cursor.execute(add_info)
             conn.commit()
         cursor.execute('select userid from "user" where openid = ' + "'" + openid + "'")
@@ -125,6 +124,19 @@ def getbook():
     cursor.close()
     return jsonify(dict_res)
 
+@app.route('/goaldata', methods=['GET'])
+def getgoal():
+    cursor = conn.cursor()
+    sql = 'select * from "goal"'
+    cursor.execute(sql)
+    column_names = [col[0] for col in cursor.description]
+    dict_res = [
+        dict(zip(column_names, row))
+        for row in cursor.fetchall()
+    ]
+    cursor.close()
+    return jsonify(dict_res)
+
 @app.route('/userinfo', methods=['GET'])
 @login_required
 def getuserinfo():
@@ -133,8 +145,168 @@ def getuserinfo():
     data = s.loads(token)
     userid = data['id']
     cursor = conn.cursor()
-    sql = 'select userid,punchday,asset from "user" where userid = ' + "'" + userid + "'"
+    sql = '''
+        select punchday,asset,num.booknum,num.userid 
+        from "user",(select userid,count(bookid) as booknum 
+            from(select "user".userid,"desktop".bookid 
+                from "user" full outer join "desktop" on "user".userid = "desktop".userid)temp
+            group by userid)num
+        where "user".userid =
+        ''' + "'" + userid + "' and num.userid=" + "'" + userid + "'"
     cursor.execute(sql)
+    column_names = [col[0] for col in cursor.description] + ['']
+    dict_res = [
+        dict(zip(column_names, row))
+        for row in cursor.fetchall()
+    ]
+    cursor.close()
+    return jsonify(dict_res)
+
+@app.route('/addbook', methods=['GET'])
+@login_required
+def addbook():
+    token = request.headers["token"]
+    s = Serializer(SECRET_KEY)
+    data = s.loads(token)
+    userid = data['id']
+    bookid = request.args.get("bookid")
+    index = request.args.get("goalIndex")
+    cursor = conn.cursor()
+    sql = 'select * from "desktop" where userid = ' + "'" + userid + "'"
+    cursor.execute(sql)
+    data = cursor.fetchall()
+    if len(data) >= 10:
+        return jsonify(code=10000, msg="大于10本书")
+    elif len(data) == 0:
+        sql = 'insert into "desktop" values (' + "'" + userid + "'," + bookid + ",1," + index + ")"
+        cursor.execute(sql)
+        conn.commit()
+        sql4 = 'insert into "learninglist" (userid,bookid,word,learntype,wordid) select ' + "'" + userid + "'," + bookid + ",word,0,wordid from" + ' "words" where bookid=' + bookid
+        cursor.execute(sql4)
+        conn.commit()
+    else:
+        sql = 'select * from "desktop" where userid = ' + "'" + userid + "' and bookid = "+bookid
+        cursor.execute(sql)
+        info = cursor.fetchall()
+        if len(info) == 0:
+            sql = 'insert into "desktop" values (' + "'" + userid + "'," + bookid + ",1," + index + ")"
+            cursor.execute(sql)
+            conn.commit()
+            sql2 = 'update "desktop" set islearn = 0 where userid = ' + "'" + userid + "' and bookid != "+bookid
+            cursor.execute(sql2)
+            conn.commit()
+            sql3 = 'delete from "learninglist" where userid = ' + "'" + userid + "' and bookid != " + bookid
+            cursor.execute(sql3)
+            sql4 = 'insert into "learninglist" (userid,bookid,word,learntype,wordid) select ' + "'" + userid + "'," + bookid + ",word,0,wordid from" + ' "words" where bookid=' + bookid
+            cursor.execute(sql4)
+            conn.commit()
+        else:
+            sql = 'update "desktop" set goalid =' + index + ' where userid = ' + "'" + userid + "' and bookid = "+bookid
+            cursor.execute(sql)
+            conn.commit()
+            sql2 = 'update "desktop" set islearn = 0 where userid = ' + "'" + userid + "' and bookid != "+bookid
+            cursor.execute(sql2)
+            conn.commit()
+    return ('OK')
+
+@app.route('/getmybook', methods=['GET'])
+@login_required
+def getmybook():
+    token = request.headers["token"]
+    s = Serializer(SECRET_KEY)
+    data = s.loads(token)
+    userid = data['id']
+    cursor = conn.cursor()
+    sql = 'select "desktop".bookid,bookname,imgURL,count,newnum,islearn from "desktop","books","goal" where userid = '+ "'" + userid+ "'" 'and "desktop".bookid = "books".bookid and "desktop".goalid = "goal".goalid'
+    cursor.execute(sql)
+    column_names = [col[0] for col in cursor.description]
+    dict_res = [
+        dict(zip(column_names, row))
+        for row in cursor.fetchall()
+    ]
+    cursor.close()
+    return jsonify(dict_res)
+
+@app.route('/delbook', methods=['GET'])
+@login_required
+def delbook():
+    token = request.headers["token"]
+    s = Serializer(SECRET_KEY)
+    data = s.loads(token)
+    userid = data['id']
+    bookid = request.args.get("bookid")
+    cursor = conn.cursor()
+    sql = 'delete from "desktop" where userid = ' + "'" + userid + "'" 'and bookid = ' + bookid
+    cursor.execute(sql)
+    conn.commit()
+    cursor.close()
+    return jsonify('OK')
+
+@app.route('/changelearn', methods=['GET'])
+@login_required
+def changelearn():
+    token = request.headers["token"]
+    s = Serializer(SECRET_KEY)
+    data = s.loads(token)
+    userid = data['id']
+    bookid = request.args.get("bookid")
+    cursor = conn.cursor()
+    sql = 'update "desktop" set islearn = 1 where userid = ' + "'" + userid + "' and bookid = "+bookid
+    cursor.execute(sql)
+    sql2 = 'update "desktop" set islearn = 0 where userid = ' + "'" + userid + "' and bookid != "+bookid
+    cursor.execute(sql2)
+    sql3 = 'delete from "learninglist" where userid = ' + "'" + userid + "' and bookid != "+bookid
+    cursor.execute(sql3)
+    sql4 = 'insert into "learninglist" (userid,bookid,word,learntype,wordid) select ' + "'" + userid + "',"+ bookid +",word,0,wordid from" + ' "words" where bookid='+ bookid
+    cursor.execute(sql4)
+    conn.commit()
+    cursor.close()
+    return jsonify('OK')
+
+@app.route('/getstudyinfo', methods=['GET'])
+@login_required
+def getstudyinfo():
+    token = request.headers["token"]
+    s = Serializer(SECRET_KEY)
+    data = s.loads(token)
+    userid = data['id']
+    cursor = conn.cursor()
+    sql = '''
+    select "desktop".bookid,bookname,count,newnum,reviewnum,
+	(select count(*) from "learninglist" where learntype=0 and userid='''+ "'" + userid + "'" +''') as unlearnnum
+		from "books","desktop","goal" 
+		where "books".bookid="desktop".bookid and "desktop".userid='''+ "'" + userid + "'" +'''
+			and islearn=1 and "desktop".goalid="goal".goalid
+    '''
+    cursor.execute(sql)
+    column_names = [col[0] for col in cursor.description]
+    dict_res = [
+        dict(zip(column_names, row))
+        for row in cursor.fetchall()
+    ]
+    cursor.close()
+    return jsonify(dict_res)
+
+@app.route('/getstudyword', methods=['GET'])
+@login_required
+def getstudyword():
+    token = request.headers["token"]
+    s = Serializer(SECRET_KEY)
+    data = s.loads(token)
+    userid = data['id']
+    cursor = conn.cursor()
+    sql = 'select count(*) from "learninglist" where learntype=0 and userid='+"'"+userid+"'"
+    cursor.execute(sql)
+    num = cursor.fetchone()[0]
+    rand = getRandom(num)
+    sql2 = '''
+    select top(1) * from(
+	select top('''+str(rand)+''') "words".word,example,"words".wordid from "learninglist","words" 
+		where learntype=0 and "words".wordid="learninglist".wordid and "words".bookid="learninglist".bookid and userid='''+"'"+userid+"'"+'''
+		order by "words".wordid)as temp 
+	order by wordid desc 
+    '''
+    cursor.execute(sql2)
     column_names = [col[0] for col in cursor.description]
     dict_res = [
         dict(zip(column_names, row))

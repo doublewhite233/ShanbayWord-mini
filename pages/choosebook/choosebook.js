@@ -105,7 +105,7 @@ Page({
     })
     wx.navigateTo({
       url: '/pages/goal/goal?bookname='+ this.data.currentBookInfo.bookname + "&imgurl=" + this.data.currentBookInfo.imgURL
-       + "&count=" + this.data.currentBookInfo.count,
+       + "&count=" + this.data.currentBookInfo.count + "&bookid=" + this.data.currentBookInfo.bookid,
     })
   }
 })

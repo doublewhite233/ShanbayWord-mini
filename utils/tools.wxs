@@ -1,0 +1,5 @@
+var getNum = function (num,figure) {
+  var res = num.toFixed(figure)
+  return res
+}
+module.exports = {getNum:getNum};

@@ -1,0 +1,17 @@
+/* components/topbar/topbar.wxss */
+.content {
+  display: flex;
+  text-align: center;
+  padding: 20rpx 0;
+  font-size: 28rpx;
+}
+
+.content-title {
+  color: #888;
+  font-size: 26rpx;
+  padding-bottom: 10rpx;
+}
+
+.content view {
+  flex: 1;
+}

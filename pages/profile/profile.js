@@ -16,18 +16,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if (app.globalData.userInfo != null){
-      this.setData ({
-        userId: app.globalData.userInfo.nickName,
-        userAvatar: app.globalData.userInfo.avatarUrl,
-        loginDisable: true
-      })
-    }
-    if (app.globalData.ShanbayInfo != null){
-      this.setData ({
-        shanbayID: app.globalData.ShanbayInfo.userid
-      })
-    }
   },
 
   /**
@@ -87,5 +75,10 @@ Page({
       userAvatar: e.detail.userInfo.avatarUrl,
       loginDisable: true
     })
+    if (app.globalData.ShanbayInfo != null){
+      this.setData ({
+        shanbayID: app.globalData.ShanbayInfo.userid
+      })
+    }
   }
 })

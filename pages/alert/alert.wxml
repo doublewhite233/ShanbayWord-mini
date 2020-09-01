@@ -1,0 +1,2 @@
+<!--pages/alert/alert.wxml-->
+<empty-page emptyTitle="该功能正在维护中" content="由于小程序模板消息功能调整，此功能暂不可用"/>

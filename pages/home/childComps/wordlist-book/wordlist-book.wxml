@@ -1,7 +1,12 @@
 <!--pages/home/childComps/wordlist-book/wordlist-book.wxml-->
 <view class="wordlist-book">
-  <image src="/assets/home/no-book.png"></image>
+  <image src="{{bgImgUrl}}"></image>
   <view class="book-name">{{bookName}}</view>
-  <view><text class="your-condition">已完成<text>a</text>%</text><text class="finish-num">/词</text></view>
+  <view>
+    <wxs src="../../../../utils/tools.wxs" module="tools"></wxs>
+    <text class="your-condition">已完成<text>{{tools.getNum((count-unlearnCount)/count,1)}}</text>%</text>
+    <text class="finish-num">{{count-unlearnCount}}/{{count}}词</text>
+  </view>
   <progress class="study-progress"></progress>
+  <button size="mini" class="listBtn" wx:if="{{showBtn}}">词表</button>
 </view>

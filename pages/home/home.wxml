@@ -4,7 +4,9 @@
   <view>{{prompt}}</view>
   <view id="maintext">Hi~</view>
   <button size="mini" id="clockinBtn">打卡日历></button>
-  <wordlist-book/>
-  <study-condition titles="{{['新词数','复习单词','未学单词']}}"/>
+  <wordlist-book bookName="{{studyInfo.bookname}}"  bgImgUrl="/assets/home/book.png" count="{{studyInfo.count}}" unlearnCount="{{studyInfo.unlearnnum}}" showBtn="{{true}}" wx:if="{{existFlag}}"/>
+  <wordlist-book wx:if="{{!existFlag}}"/>
+  <study-condition titles="{{['新词数','复习单词','未学单词']}}" studyNums="{{[newnum,reviewnum,unlearnnum]}}" wx:if="{{existFlag}}"/>
+  <study-condition titles="{{['新词数','复习单词','未学单词']}}" wx:if="{{!existFlag}}"/>
   <button id="startBtn" bindtap="bindStart">{{btnMessage}}</button>
 </view>

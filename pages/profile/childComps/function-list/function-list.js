@@ -36,6 +36,16 @@ Component({
       wx.navigateTo({
         url: '/pages/aboutus/aboutus',
       })
+    },
+    bindNavToAlert() {
+      wx.navigateTo({
+        url: '/pages/alert/alert',
+      })
+    },
+    bindNavToAsset() {
+      wx.navigateTo({
+        url: '/pages/userasset/userasset',
+      })
     }
   }
 })

@@ -1,0 +1,43 @@
+/* pages/mybooks/childComps/book-item/book-item.wxss */
+.book-item {
+  background-color: #fff;
+  border-radius: 20rpx;
+  width: 94%;
+  margin: 3%;
+  display: flex;
+  position: relative;
+}
+
+.book-item image {
+  width: 150rpx;
+  height: 195rpx;
+  padding: 20rpx;
+}
+
+.title-text :nth-child(1) {
+  font-size: 34rpx;
+  padding-top: 20rpx;
+}
+
+.title-text :nth-child(2) {
+  padding-top: 10rpx;
+  font-size: 26rpx;
+  color: #777;
+}
+
+.changeBtn {
+  color: #18c198;
+  background-color: #d2f3ec;
+  border-radius: 50rpx;
+  position: absolute;
+  right: 40rpx;
+  bottom: 30rpx;
+}
+
+.title-text image {
+  width: 50rpx;
+  height: 40rpx;
+  position: absolute;
+  padding-left:0;
+  bottom: 30rpx;
+}

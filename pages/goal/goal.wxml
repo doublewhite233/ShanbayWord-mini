@@ -5,7 +5,7 @@
   <view class="content">
     <view class="bookname">{{bookName}}</view>
     <view>{{count}}词</view>
-    <view>预计完成时间</view>
   </view>
-  <!-- <button>完成设置</button> -->
+  <text class="predict">预计完成时间</text>
+  <set-goal-box datalist="{{datalist}}" wordnum="{{count}}" bind:setgoal="bindSetGoal"/>
 </view>

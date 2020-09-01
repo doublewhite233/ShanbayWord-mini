@@ -7,7 +7,10 @@
     "pages/wordnotes/wordnotes",
     "pages/aboutus/aboutus",
     "pages/choosebook/choosebook",
-    "pages/goal/goal"
+    "pages/goal/goal",
+    "pages/alert/alert",
+    "pages/userasset/userasset",
+    "pages/word/word"
   ],
   "window": {
     "backgroundTextStyle": "light",

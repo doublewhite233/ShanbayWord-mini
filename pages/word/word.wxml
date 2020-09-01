@@ -1,0 +1,10 @@
+<!--pages/word/word.wxml-->
+<view class="word">
+  <topbar newnum="{{newnum}}" reviewnum="{{reviewnum}}"/>
+  <button id="easyBtn">标记为太简单</button>
+  <view class="word-text">{{word}}</view>
+  <audio style="display:none" src="{{audiopath}}" id="myAudio"></audio>
+  <image src="/assets/word/audio.png" bindtap="bindplayaudio"></image>
+  <button class="choose" id="success" bindtap="bindSuccess">{{successBtn}}</button>
+  <button class="choose" id="fail" bindtap="bindFail">{{failBtn}}</button>
+</view>

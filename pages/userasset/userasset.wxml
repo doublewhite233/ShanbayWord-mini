@@ -1,0 +1,17 @@
+<!--pages/userasset/userasset.wxml-->
+<image src="https://s1.ax1x.com/2020/08/02/atDfmR.png" mode="aspectFit" id="background"></image>
+<view class="asset">
+  <view class="title">
+    <text class="title-main">我的贝壳</text><text>明细></text>
+  </view>
+  <view class="content">
+  <image src="/assets/profile/asset.png"></image>
+    <view>{{money}}</view>
+    <button id="buyBtn">购买贝壳</button>
+  </view>
+  <view class="foot">
+    <view class="foot-title">- 温馨提示 -</view>
+    <view class="foot-con">日常打卡、参加单词计划也可以获得贝壳哦~快去看看吧！</view>
+    <view class="foot-con">扇贝旗下所有产品的贝壳账户是共通的哦，贝壳同样可在其他产品中使用或获得</view>
+  </view>
+</view>

@@ -36,5 +36,5 @@
   color: #fff;
   background-color: #44cc99;
   border-radius: 50rpx;
-  width: 70%;
+  width: 80%;
 }

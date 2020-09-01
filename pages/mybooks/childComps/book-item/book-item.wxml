@@ -1,0 +1,12 @@
+<!--pages/mybooks/childComps/book-item/book-item.wxml-->
+<view class="book-item">
+  <view>
+    <image src="{{imgURL}}" />
+  </view>
+  <view class="title-text">
+    <view>{{title}}</view>
+    <view>已完成： 0/{{wordnum}}词</view>
+    <image src="/assets/mybook/del.png" bindtap="bindDelBook"></image>
+    <button size="mini" class="changeBtn" bindtap="bindLearnBook">学习此书</button>
+  </view>
+</view>

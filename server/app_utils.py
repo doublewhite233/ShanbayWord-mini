@@ -6,5 +6,9 @@ def getRandomID(num):
     randID = ''.join(rand)
     return randID
 
+def getRandom(num):
+    return random.randint(1, num)
+
 if __name__ == '__main__' :
     print(getRandomID(5))
+    print(getRandom(10))

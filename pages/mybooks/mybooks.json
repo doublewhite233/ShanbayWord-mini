@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "empty-page": "/components/empty-page/empty-page"
+    "empty-page": "/components/empty-page/empty-page",
+    "book-item": "./childComps/book-item/book-item"
   }
 }

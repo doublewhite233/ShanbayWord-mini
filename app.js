@@ -9,7 +9,6 @@ App({
     ShanbayInfo: {}
   },
   onLaunch: function () {
-    this.getShanbayInfo()
     const token = wx.getStorageSync(TOKEN)
     if (token && token.length !== 0) {
       this.checkToken(token)
@@ -22,7 +21,9 @@ App({
         if (res.authSetting['scope.userInfo']) {
           // 登录是否失效
           wx.checkSession({
-            success: (res) => {},
+            success: (res) => {              
+              this.getShanbayInfo()
+            },
             fail: (res) => {
               // 登录失效，重新登陆
               this.login()
@@ -53,7 +54,7 @@ App({
         token
       }
     }).then(res => {
-      if (!res.data.errCode) {
+      if (!res.data.code) {
         this.globalData.token = token
       }else {
         this.login()
@@ -72,7 +73,6 @@ App({
             code: code
           }
         }).then(res => {
-          console.log(res)
           const token = res.data.token
           // 将token保存到globalData中
           this.globalData.token = token
@@ -92,7 +92,6 @@ App({
         token
       }
     }).then(res => {
-      console.log(res)
       this.globalData.ShanbayInfo = res.data[0]
     })
   }

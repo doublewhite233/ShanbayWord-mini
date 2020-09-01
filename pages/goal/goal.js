@@ -1,13 +1,18 @@
 // pages/goal/goal.js
+import request,{baseURL} from '../../service/network'
+const app = getApp()
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    bookid: 1,
     bookName: '',
     imgURL: '',
-    count: 0
+    count: 1,
+    datalist: {}
   },
 
   /**
@@ -17,8 +22,10 @@ Page({
     this.setData({
       bookName: options.bookname,
       imgURL: options.imgurl,
-      count: options.count
-    })
+      count: options.count,
+      bookid: options.bookid
+    }),
+    this. getDatalist()
   },
 
   /**
@@ -68,5 +75,32 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  getDatalist() {
+    request ({
+      url: baseURL + '/goaldata'
+    }).then ( res => {
+      this.setData({
+        datalist: res.data
+      })
+    })
+  },
+  bindSetGoal(e) {
+    let currentIndex = e.detail.currentIndex
+    request({
+      url: baseURL + '/addbook',
+      header: {
+        token: app.globalData.token
+      },
+      data: {
+        goalIndex: currentIndex,
+        bookid: this.data.bookid
+      }
+    }).then(res => {
+      app.getShanbayInfo(),
+      wx.navigateTo({
+        url: '../mybooks/mybooks',
+      })
+    })
   }
 })

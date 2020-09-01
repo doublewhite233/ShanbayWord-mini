@@ -27,7 +27,7 @@
 			"outputPath": ""
 		},
 		"useIsolateContext": true,
-		"useCompilerModule": false,
+		"useCompilerModule": true,
 		"userConfirmedUseCompilerModuleSwitch": false
 	},
 	"compileType": "miniprogram",
@@ -81,9 +81,15 @@
 				},
 				{
 					"id": -1,
-					"name": "pages/choosebook/choosebook",
-					"pathName": "pages/choosebook/choosebook",
+					"name": "pages/mybooks/mybooks",
+					"pathName": "pages/mybooks/mybooks",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/word/word",
+					"pathName": "pages/word/word",
 					"scene": null
 				}
 			]

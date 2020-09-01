@@ -1,0 +1,25 @@
+<!--pages/goal/childComps/set-goal-box/set-goal-box.wxml-->
+<view class="set-goal-box">
+  <view class="box-body">
+    <view class="body-desc">
+      <view>每日学习任务</view>
+      <view>完成天数</view>
+    </view>
+    <view class="body-con" bindtouchstart="bindStart" bindtouchmove="bindMove" bindtouchend="bindEnd">
+      <view class="choosen"></view>
+      <view class="content" style="margin-top:{{scrollY+100}}px">
+        <view wx:for="{{datalist}}" wx:key="goalid" class="{{(currentIndex-1)==index?'active body-content':'body-content'}}">
+          <view><text style="font-size: 28rpx;">新词</text>{{' '+item.newnum+' '}}<text style="font-size: 28rpx;">复习</text>{{' '+item.reviewnum+' '}}</view>
+          <wxs module="m1">
+            var getnum = function(num) {
+              return Math.ceil(num)
+            } 
+            module.exports.getnum = getnum;
+          </wxs>
+          <view>{{m1.getnum(wordnum/item.newnum)}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <button bindtap="bindSetGoal">完成设置</button>
+</view>

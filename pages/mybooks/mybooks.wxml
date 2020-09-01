@@ -1,6 +1,29 @@
 <!--pages/mybooks/mybooks.wxml-->
+<image src="https://s1.ax1x.com/2020/08/02/atDfmR.png" mode="aspectFit" id="background"></image>
 <view class="mybooks">
-  <view>我的学习任务</view>
-  <view>我的书桌</view>
-  <button bindtap="bindNavToChooseBook">添加新书</button>
+  <view class="title" bindtap="bindNavToGoal">
+    我的学习任务 <text class="learn-icon">正在学</text>
+    <view class="islearn" wx:for="{{mybookinfo}}" wx:if="{{item.islearn}}" wx:key="bookid">
+      <view>
+        <image src="{{item.imgURL}}"/>
+      </view>
+      <view>
+        <view style="font-size:36rpx;padding-bottom:10rpx">{{item.bookname}}</view>
+        <text style="margin-left:-20rpx;margin-right:10rpx">每日新学{{item.newnum}}词</text>
+        <image src="/assets/mybook/alter.png" id="alterImg"/>
+        <view style="position:absolute;top:380rpx;color:#777;font-size:26rpx">已完成：0/{{item.count}}词</view>
+        <progress class="study-progress"></progress>
+      </view>
+    </view>
+  </view>
+  <view class="desktop">
+    <view class="desktop-title">
+      我的书桌
+      <button bindtap="bindNavToChooseBook" size="mini" class="chooseBtn">添加新书</button>
+    </view>
+    <view wx:for="{{mybookinfo}}" wx:if="{{!item.islearn}}" wx:key="bookid">
+      <book-item title="{{item.bookname}}" imgURL="{{item.imgURL}}" wordnum="{{item.count}}"
+       bookid="{{item.bookid}}" bind:delbook="bindDelBook" bind:learnbook="bindLearnBook"/>
+    </view>
+  </view>
 </view>

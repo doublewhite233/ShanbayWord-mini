@@ -1,0 +1,70 @@
+/* pages/goal/childComps/set-goal-box/set-goal-box.wxss */
+.set-goal-box {
+  position: absolute;
+  top: 400rpx;
+  background-color: #eee;
+  height: calc(100vh - 400rpx);
+  width: 100%;
+}
+
+.box-body {
+  width: 90%;
+  height: 530rpx;
+  background-color: #fff;
+  border-radius: 20rpx;
+  margin-left: 5%;
+  margin-top: 5%;
+}
+
+.body-desc {
+  font-size: 28rpx;
+  display: flex;
+  text-align: center;
+  padding: 20rpx 0;
+}
+
+.box-body :nth-child(1) {
+  flex: 4
+}
+
+.box-body :nth-child(2) {
+  flex: 3
+}
+
+.body-con{
+  height: 410rpx;
+  overflow: hidden;
+}
+
+.body-content {
+  display: flex;
+  text-align: center;
+  font-size: 40rpx;
+  margin: 30rpx 0;
+  color: #999;
+}
+
+button {
+  font-weight: normal;
+  font-size: 34rpx;
+  color: #fff;
+  background-color: #44cc99;
+  border-radius: 50rpx;
+  width: 80%;
+  margin-top: 60rpx;
+}
+
+.choosen {
+  margin-left: 5%;
+  width: 80%;
+  height: 80rpx;
+  border-bottom: 1px solid #ddd;
+  border-top: 1px solid #ddd;
+  color: transparent;
+  position: absolute;
+  top: 295rpx
+}
+
+.active {
+  color: #000;
+}

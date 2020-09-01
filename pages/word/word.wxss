@@ -1,0 +1,54 @@
+/* pages/word/word.wxss */
+.word {
+  width: 100%;
+  text-align: center;
+}
+
+.word-text {
+  padding-top: 200rpx;
+  font-size: 60rpx;
+  font-weight: bold;
+}
+
+.word image {
+  padding-top: 40rpx;
+  width: 60rpx;
+  height: 50rpx;
+}
+
+.choose {
+  font-weight: normal;
+  font-size: 34rpx;
+  color: #fff;
+  border-radius: 50rpx;
+  position: absolute;
+}
+
+#success {
+  width: 80%;
+  background-color: #44cc99;
+  bottom: 150rpx;
+  margin: 0 10%;
+}
+#fail {
+  width: 80%;
+  background-color: #fe935b;
+  bottom: 50rpx;
+  margin: 0 10%;
+}
+
+#easyBtn {
+  background-color: #eee;
+  color: #666;
+  font-weight: normal;
+  font-size: 26rpx;
+  position: absolute;
+  top: 200rpx;
+  right: 0;
+  width: 220rpx;
+  padding: 15rpx 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-top-left-radius: 50rpx;
+  border-bottom-left-radius: 50rpx;
+}
